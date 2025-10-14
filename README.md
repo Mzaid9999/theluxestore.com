@@ -1,2 +1,2 @@
-# theluxestore.github.io
+# theluxestore
 My luxury store website
