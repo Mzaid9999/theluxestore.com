@@ -114,7 +114,10 @@ margin-top:50px;
 <header>
 
 <div class="logo">THE LUXE STORE</div>
-
+  
+<div style="font-size:22px;">
+🛒 Cart: <span id="cart-count">0</span>
+</div>
 <nav>
 <a href="#">Home</a>
 <a href="#">Products</a>
@@ -143,8 +146,7 @@ margin-top:50px;
 
 <div class="price">$299</div>
 
-<button class="btn">Buy Now</button>
-
+<button class="btn" onclick="addToCart('Luxury Watch')">Buy Now</button>
 </div>
 
 <div class="card">
@@ -155,8 +157,7 @@ margin-top:50px;
 
 <div class="price">$199</div>
 
-<button class="btn">Buy Now</button>
-
+<button class="btn" onclick="addToCart('Premium Shoes')">Buy Now</button>
 </div>
 
 <div class="card">
@@ -167,8 +168,7 @@ margin-top:50px;
 
 <div class="price">$149</div>
 
-<button class="btn">Buy Now</button>
-
+<button class="btn" onclick="addToCart('Designer Shirt')">Buy Now</button>
 </div>
 
 </section>
@@ -178,6 +178,19 @@ margin-top:50px;
 © 2026 THE LUXE STORE
 
 </footer>
+<script>
+  
+let cart = 0;
 
+function addToCart(product){
+
+cart++;
+
+document.getElementById("cart-count").innerText = cart;
+
+alert(product + " added to cart");
+
+}
+</script>
 </body>
 </html>
