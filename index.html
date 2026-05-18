@@ -335,6 +335,8 @@ Shop Now
 <script>
   
 let cart = 0;
+ let cartTotal = 0;
+let cartItems = document.getElementById("cart-items");
 
 function addToCart(product){
 
@@ -347,6 +349,14 @@ document.getElementById("popup").style.display = "flex";
 document.getElementById("popup-title").innerText = product;
 
 document.getElementById("popup-price").innerText = "Added to cart successfully!";
+ cartTotal += 299;
+document.getElementById("cart-total").innerText = cartTotal;
+
+cartItems.innerHTML += `
+<div style="margin:10px 0;padding:10px;background:#222;border-radius:10px;">
+${product} - $299
+</div>
+`;
 }
  function closePopup(){
 document.getElementById("popup").style.display = "none";
