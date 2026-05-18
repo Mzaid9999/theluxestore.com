@@ -293,7 +293,7 @@ Shop Now
 
 <div class="price">$299</div>
 
-<button class="btn" onclick="addToCart('Luxury Watch')">Buy Now</button>
+<button class="btn" onclick="addToCart('Luxury Watch',299)">Buy Now</button>
 </div>
 
 <div class="card">
@@ -304,7 +304,7 @@ Shop Now
 
 <div class="price">$199</div>
 
-<button class="btn" onclick="addToCart('Premium Shoes')">Buy Now</button>
+<button class="btn" onclick="addToCart('Premium Shoes',199)">Buy Now</button>
 </div>
 
 <div class="card">
@@ -315,7 +315,7 @@ Shop Now
 
 <div class="price">$149</div>
 
-<button class="btn" onclick="addToCart('Designer Shirt')">Buy Now</button>
+<button class="btn" onclick="addToCart('Designer Shirt',149)">Buy Now</button>
 </div>
 
 </section>
@@ -338,7 +338,7 @@ let cart = 0;
  let cartTotal = 0;
 let cartItems = document.getElementById("cart-items");
 
-function addToCart(product){
+function addToCart(product,price){
 
 cart++;
 
@@ -349,12 +349,12 @@ document.getElementById("popup").style.display = "flex";
 document.getElementById("popup-title").innerText = product;
 
 document.getElementById("popup-price").innerText = "Added to cart successfully!";
- cartTotal += 299;
+ cartTotal += price;
 document.getElementById("cart-total").innerText = cartTotal;
 
 cartItems.innerHTML += `
 <div style="margin:10px 0;padding:10px;background:#222;border-radius:10px;">
-${product} - $299
+${product} - $$(price)
 </div>
 `;
 }
