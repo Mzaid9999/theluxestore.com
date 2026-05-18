@@ -337,11 +337,16 @@ Shop Now
 let cart = 0;
  let cartTotal = 0;
 let cartItems = document.getElementById("cart-items");
+let savedCart = localStorage.getItem("cartCount");
 
+if(savedCart){
+cart = parseInt(savedCart);
+document.getElementById("cart-count").innerText = cart;
+}
 function addToCart(product,price){
 
 cart++;
-
+localStorage.setItem("cartCount", cart);
 document.getElementById("cart-count").innerText = cart;
 
 document.getElementById("popup").style.display = "flex";
@@ -355,6 +360,16 @@ document.getElementById("cart-total").innerText = cartTotal;
 cartItems.innerHTML += `
 <div style="margin:10px 0;padding:10px;background:#222;border-radius:10px;">
 ${product} - $$(price)
+<button onclick="
+cart--;
+document.getElementById('cart-count').innerText = cart;
+cartTotal -= price;
+document.getElementById('cart-total').innerText = cartTotal;
+this.parentElement.remove();
+"
+style="margin-top:8px;padding:5px 10px;background:red;color:white;border:none;border-radius:5px;cursor:pointer;">
+Remove
+</button>
 </div>
 `;
 }
@@ -369,7 +384,17 @@ document.getElementById("cart-sidebar").classList.add("active");
 function closeCart(){
 document.getElementById("cart-sidebar").classList.remove("active");
 }
+function checkoutWhatsApp(){
 
+let message = "New Order:%0A";
+
+message += "Items in Cart: " + cart + "%0A";
+
+message += "Total: $" + cartTotal;
+
+window.open("https://wa.me/923009599999?text=" + message);
+
+}
 </script>
  <div id="popup" class="popup">
 
@@ -380,7 +405,9 @@ document.getElementById("cart-sidebar").classList.remove("active");
 <p id="popup-price"></p>
 
 <button class="btn" onclick="closePopup()">Close</button>
-
+<button class="btn" onclick="checkoutWhatsApp()">
+Order on WhatsApp
+</button>
 </div>
 
 </div>
