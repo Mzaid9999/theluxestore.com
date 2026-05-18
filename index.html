@@ -224,6 +224,34 @@ color:gold;
 font-size:20px;
 margin:15px 0;
 }
+ .cart-sidebar{
+position:fixed;
+right:-400px;
+top:0;
+width:320px;
+height:100%;
+background:#111;
+padding:20px;
+box-shadow:-5px 0 20px rgba(255,215,0,0.3);
+transition:0.4s;
+z-index:2000;
+overflow-y:auto;
+}
+
+.cart-sidebar.active{
+right:0;
+}
+
+.cart-sidebar h2,
+.cart-sidebar h3{
+color:gold;
+}
+
+.cart-item{
+margin:15px 0;
+padding:10px;
+border-bottom:1px solid #333;
+}
 </style>
 </head>
 
@@ -322,7 +350,16 @@ document.getElementById("popup-price").innerText = "Added to cart successfully!"
 }
  function closePopup(){
 document.getElementById("popup").style.display = "none";
+  openCart();
 }
+ function openCart(){
+document.getElementById("cart-sidebar").classList.add("active");
+}
+
+function closeCart(){
+document.getElementById("cart-sidebar").classList.remove("active");
+}
+
 </script>
  <div id="popup" class="popup">
 
@@ -336,6 +373,15 @@ document.getElementById("popup").style.display = "none";
 
 </div>
 
+</div>
+ <div id="cart-sidebar" class="cart-sidebar">
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+
+<h3>Total: $<span id="cart-total">0</span></h3>
+
+<button class="btn" onclick="closeCart()">Close</button>
 </div>
 </body>
 </html>
