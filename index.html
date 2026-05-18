@@ -260,6 +260,24 @@ margin:15px 0;
 padding:10px;
 border-bottom:1px solid #333;
 }
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:5000;
+}
+
+#loader h1{
+color:gold;
+font-size:50px;
+animation:glow 1s infinite alternate;
+} 
 </style>
 </head>
 
@@ -466,6 +484,15 @@ Order on WhatsApp
 
 <button class="btn" onclick="closeCart()">Close</button>
 </div>
-
+<div id="loader">
+<h1>THE LUXE STORE</h1>
+</div>
+ <script>
+window.onload = function(){
+setTimeout(function(){
+document.getElementById("loader").style.display = "none";
+},2000);
+}
+</script>
 </body>
 </html>
