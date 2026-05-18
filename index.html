@@ -12,6 +12,8 @@
 body{
 margin:0;
 padding:0;
+opacity:0;
+transition:1s;
 background:black;
 font-family:'Poppins',sans-serif;
 color:white;
@@ -67,11 +69,13 @@ font-size:70px;
 color:gold;
 margin:0;
   animation:glow 2s infinite alternate;
+ text-shadow:0 0 20px gold;
 }
 
 .hero p{
 font-size:22px;
 margin-top:10px;
+ text-shadow:0 0 10px rgba(255,215,0,0.5);
 }
 
 .btn{
@@ -495,6 +499,11 @@ window.onload = function(){
 setTimeout(function(){
 document.getElementById("loader").style.display = "none";
 },2000);
+}
+</script>
+ <script>
+window.onload = function(){
+document.body.style.opacity = "1";
 }
 </script>
 </body>
