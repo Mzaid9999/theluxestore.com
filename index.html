@@ -418,6 +418,29 @@ message += "Total: $" + cartTotal;
 window.open("https://wa.me/923009599999?text=" + message);
 
 }
+ function searchProducts(){
+
+let input = document.getElementById("search").value.toLowerCase();
+
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+let title = card.querySelector("h2").innerText.toLowerCase();
+
+if(title.includes(input)){
+
+card.style.display = "block";
+
+}else{
+
+card.style.display = "none";
+
+}
+
+});
+
+}
 </script>
  <div id="popup" class="popup">
 
@@ -443,28 +466,6 @@ Order on WhatsApp
 
 <button class="btn" onclick="closeCart()">Close</button>
 </div>
-function searchProducts(){
 
-let input = document.getElementById("search").value.toLowerCase();
-
-let cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-let title = card.querySelector("h2").innerText.toLowerCase();
-
-if(title.includes(input)){
-
-card.style.display = "block";
-
-}else{
-
-card.style.display = "none";
-
-}
-
-});
-
-}
 </body>
 </html>
