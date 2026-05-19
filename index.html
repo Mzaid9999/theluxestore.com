@@ -52,8 +52,13 @@ nav a{
 color:white;
 margin:15px;
 text-decoration:none;
+ positon:relative;
+ transition:0.3s;
 }
-
+nan a:hover{
+ color:gold;
+ text-shadow:0 0 10px gold;
+}
 .hero{
 height:70vh;
 display:flex;
@@ -141,7 +146,8 @@ border-radius:10px;
  transition:0.4s;
 }
  .card img:hover{
-  tranform:scale(1.05);
+  tranform:scale(1.1)rotate(2deg);
+  filter:brightness(1.1);
  }
 .card:hover{
 transform:translateY(-15px) scale(1.05) rotateX(5deg);
@@ -340,6 +346,29 @@ width:90%;
 width:100%;
 }
 
+}
+ .whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+box-shadow:0 0 15px rgba(37,211,102,0.6);
+z-index:1000;
+transition:0.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px rgba(37,211,102,1);
 }
 </style>
 </head>
