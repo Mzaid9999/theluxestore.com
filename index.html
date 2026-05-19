@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initiFal-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <title>The Luxe Store</title>
 
@@ -433,6 +433,52 @@ font-weight:bold;
 transform:scale(1.1);
 transition:0.3s;
 }
+ .light-mode{
+background:white;
+color:black;
+}
+
+.light-mode .card{
+background:#f5f5f5;
+color:black;
+}
+
+.light-mode header{
+background:white;
+}
+
+.light-mode nav a{
+color:black;
+}
+ .testimonials{
+padding:60px 20px;
+text-align:center;
+background:#111;
+}
+
+.testimonials h2{
+color:gold;
+font-size:36px;
+margin-bottom:30px;
+}
+
+.testimonial-box{
+max-width:700px;
+margin:auto;
+background:#1a1a1a;
+padding:30px;
+border-radius:15px;
+box-shadow:0 0 20px rgba(255,215,0,0.3);
+}
+
+.testimonial-box p{
+font-size:20px;
+margin-bottom:15px;
+}
+
+.testimonial-box h4{
+color:gold;
+}
 </style>
 </head>
 
@@ -443,7 +489,7 @@ transition:0.3s;
 <button onclick="closePopup()">Enter Store</button>
 </div>
 <header>
-
+<button onclick="toggleMode()" class="btn">🌙 Mode</button>
 <div class="logo">THE LUXE STORE</div>
   <div style="color:gold; font-size:20px;">
 🛒 Cart: <span id="cart-count">0</span>
@@ -511,7 +557,14 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 </div>
 
 </section>
+<section class="testimonials">
+<h2>Customer Reviews</h2>
 
+<div class="testimonial-box">
+<p id="review-text">"Amazing luxury products and fast delivery!"</p>
+<h4 id="review-name">— Ali Khan</h4>
+</div>
+</section>
 <footer>
 
 © 2026 THE LUXE STORE
@@ -661,6 +714,40 @@ document.getElementById("loader").style.display = "none";
 function closePopup(){
 document.getElementById("welcome-popup").style.display="none";
 }
+</script>
+ <script>
+function toggleMode(){
+document.body.classList.toggle("light-mode");
+}
+</script>
+ <script>
+const reviews = [
+{
+text:"Amazing luxury products and fast delivery!",
+name:"Ali Khan"
+},
+{
+text:"Best premium shopping experience ever.",
+name:"Ahmed Raza"
+},
+{
+text:"Beautiful design and excellent quality!",
+name:"Usman Ali"
+}
+];
+
+let reviewIndex = 0;
+
+setInterval(()=>{
+reviewIndex = (reviewIndex + 1) % reviews.length;
+
+document.getElementById("review-text").innerText =
+reviews[reviewIndex].text;
+
+document.getElementById("review-name").innerText =
+"— " + reviews[reviewIndex].name;
+
+},3000);
 </script>
 </body>
 </html>
