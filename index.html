@@ -370,11 +370,56 @@ transition:0.3s;
 transform:scale(1.1);
 box-shadow:0 0 25px rgba(37,211,102,1);
 }
+ #welcome-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+color:white;
+text-align:center;
+}
+
+#welcome-popup h2{
+color:gold;
+font-size:40px;
+margin-bottom:10px;
+}
+
+#welcome-popup p{
+font-size:20px;
+margin-bottom:20px;
+}
+
+#welcome-popup button{
+padding:15px 30px;
+background:gold;
+border:none;
+font-size:18px;
+cursor:pointer;
+border-radius:10px;
+font-weight:bold;
+}
+
+#welcome-popup button:hover{
+transform:scale(1.1);
+transition:0.3s;
+}
 </style>
 </head>
 
 <body>
-
+<div id="welcome-popup">
+<h2>Welcome to THE LUXE STORE</h2>
+<p>Luxury Shopping Experience</p>
+<button onclick="closePopup()">Enter Store</button>
+</div>
 <header>
 
 <div class="logo">THE LUXE STORE</div>
@@ -418,7 +463,7 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 
 <div class="price">$299</div>
 
-<button class="btn" onclick="addToCart('Luxury Watch',299)">Buy Now</button>
+<button class="btn" onclick="window.open('https://wa.me/923001234567?text=I want to buy Luxury Watch')">Buy Now</button>
 </div>
 
 <div class="card">
@@ -429,7 +474,7 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 
 <div class="price">$199</div>
 
-<button class="btn" onclick="addToCart('Premium Shoes',199)">Buy Now</button>
+<button class="btn" onclick="window.open('https://wa.me/923001234567?text=I want to buy Premium Shoes')">Buy Now</button>
 </div>
 
 <div class="card">
@@ -469,7 +514,7 @@ cart = parseInt(savedCart);
 document.getElementById("cart-count").innerText = cart;
 }
 function addToCart(product,price){
-
+alert(product + "added to cart");
 cart++;
 localStorage.setItem("cartCount", cart);
 document.getElementById("cart-count").innerText = cart;
@@ -590,6 +635,10 @@ document.getElementById("loader").style.display = "none";
 <a href="https://wa.me/923001234567" class="whatsapp-float">
 💬
 </a>
-
+<script>
+function closePopup(){
+document.getElementById("welcome-popup").style.display="none";
+}
+</script>
 </body>
 </html>
