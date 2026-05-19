@@ -16,6 +16,7 @@ background:black;
 font-family:'Poppins',sans-serif;
 color:white;
  scroll-behavior:smooth; 
+ overflow-x:hidden;
  background-image:radial-gradient(#222 1px, transparent 1px);
 background-size:40px 40px;
  animation:fadeIn 1.5s ease;
@@ -35,6 +36,7 @@ top:0;
 z-index:999;
  backdrop-filter:blur(10px);
 background:rgba(0,0,0,0.5);
+ box-shadow:0 0 20px rgba(255,215,0,0.2);
 }
   position:sticky;
 top:0;
@@ -87,9 +89,11 @@ margin-top:20px;
 border-radius:5px;
  transition:0.3s;
 box-shadow:0 0 15px rgba(255,215,0,0.3);
+ transform:translateY(0);
 }
  .btn:hover{
-transform:scale(1.08);
+transform:translateY(-5px) scale(1.08);
+  transition:0.3s ease;
 box-shadow:0 0 20px gold;
 }
 .btn:hover{
@@ -101,8 +105,18 @@ padding:50px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:30px;
+ animation:fadlen 1s ease;
 }
-
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 .card{
 background:#111;
 padding:20px;
@@ -112,9 +126,13 @@ text-align:center;
 border:1px solid rgba(255,255,255,0.1);
 backdrop-filter:blur(10px);
 box-shadow:0 0 20px rgba(255,215,0,0.1);
+ transform:translateY(0);
 }
-
-.card img{
+ .card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 0 30px gold;
+}
+ .card img{
 width:100%;
 height:250px;
 object-fit:cover;
@@ -122,6 +140,9 @@ border-radius:10px;
   display:block;
  transition:0.4s;
 }
+ .card img:hover{
+  tranform:scale(1.05);
+ }
 .card:hover{
 transform:translateY(-15px) scale(1.05) rotateX(5deg);
 box-shadow:0 0 25px gold;
@@ -355,7 +376,7 @@ type="text"
 id="search" 
 placeholder="Search products..."
 onkeyup="searchProducts()"
-style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-size:16px;"
+style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-size:16px;"background:#111;color:white;border:2px solid gold;box-shadow:0 0 15px rgba(255,215,0,0.4);transition:0.3s;outline:none;box-shadow:0 0 20px rgba(255,215,0,0.3);;
 >
 
 <section class="products" id="products">
