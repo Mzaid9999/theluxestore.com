@@ -677,28 +677,19 @@ message += "Total: $" + cartTotal;
 window.open("https://wa.me/923009599999?text=" + message);
 
 }
- function searchProducts(){
+function searchProducts() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let cards = document.querySelectorAll("div.card");
+  cards.forEach(function(card) {
+    let title = card.querySelector("h2").textContent.toLowerCase();
+   console.log(title);
 
-let input = document.getElementById("search").value.toLowerCase();
-
-let cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-let title = card.querySelector("h2").innerText.toLowerCase();
-
-if(title.includes(input)){
-
-card.style.display = "block";
-
-}else{
-
-card.style.display = "none";
-
-}
-
-});
-
+    if (title.indexOf(input) > -1) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
 }
 </script>
  <div id="popup" class="popup" style="display:none;">
