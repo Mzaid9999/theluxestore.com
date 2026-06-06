@@ -642,23 +642,13 @@ document.getElementById("cart-total").innerText = cartTotal;
 
 cartItems.innerHTML += `
 <div style="margin:10px 0;padding:10px;background:#222;border-radius:10px;">
-${product} - $$(price)
-<button onclick="
-cart--;
-document.getElementById('cart-count').innerText = cart;
-cartTotal -= price;
-document.getElementById('cart-total').innerText = cartTotal;
-this.parentElement.remove();
-"
-style="margin-top:8px;padding:5px 10px;background:red;color:white;border:none;border-radius:5px;cursor:pointer;">
-Remove
-</button>
+${product} - $${price}
 </div>
 `;
+
+openCart();
 }
 
-  openCart();
-}
  function openCart(){
 document.getElementById("cart-sidebar").classList.add("active");
 }
