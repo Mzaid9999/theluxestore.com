@@ -561,7 +561,9 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 
 <div class="price">$299</div>
 
-<button class="btn" onclick="window.open('https://wa.me/923001234567?text=I want to buy Luxury Watch')">Buy Now</button>
+<button class="btn" onclick="showProduct('Luxury Watch','$299','https://images.unsplash.com/photo-1523170335258-f5ed11844a49')">
+View Details
+</button>
 </div>
 
 <div class="card">
@@ -573,8 +575,8 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 <div class="price">$1
  
  99</div>
-
-<button class="btn" onclick="window.open('https://wa.me/923001234567?text=I want to buy Premium Shoes')">Buy Now</button>
+ <button class="btn"
+  onclick="showProduct('Premium Shoes','$199','https://images.unsplash.com/photo-1542291026-7eec264c27ff')"> View Details </button>
 </div>
 
 <div class="card">
@@ -686,11 +688,22 @@ function searchProducts() {
     }
   });
 }
+ function showProduct(title,price,image){
+
+document.getElementById("popup").style.display="flex";
+
+document.getElementById("popup-title").innerText=title;
+
+document.getElementById("popup-price").innerText=price;
+
+document.getElementById("popup-image").src=image;
+
+}3
 </script>
  <div id="popup" class="popup" style="display:none;">
 
 <div class="popup-content">
-
+<img id="popup-image" style="width:250px;max-width:100%;border-radius:10px;">
 <h2 id="popup-title"></h2>
 
 <p id="popup-price"></p>
