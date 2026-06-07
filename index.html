@@ -667,15 +667,9 @@ cartTotal += Number(price);
 document.getElementById("cart-total").innerText = cartTotal;
 document.getElementById("popup-title").innerText = product;
 
-document.getElementById("popup-price").innerText = "Added to cart successfully!";
- cartTotal += price;
-document.getElementById("cart-total").innerText = cartTotal;
+document.getElementById("popup-price").innerText = "$" + price;
+ 
 
-cartItems.innerHTML += `
-<div style="margin:10px 0;padding:10px;background:#222;border-radius:10px;">
-${product} - $${price}
-</div>
-`;
 
 openCart();
 }
