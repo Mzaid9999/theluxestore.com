@@ -660,7 +660,7 @@ let cartItems = document.getElementById("cart-items");
 cartItems.innerHTML += `
 <div>
 ${product} - $${price}
-<button onclick="this.parentElement.remove()">Remove</button>
+<button onclick="removeFromCart(this, ${price})">Remove</button>
 </div>
 `;
 
@@ -674,7 +674,15 @@ document.getElementById("popup-price").innerText = "$" + price;
 
 openCart();
 }
+function removeFromCart(btn, price){
+    cartTotal -= Number(price);
+    document.getElementById("cart-total").innerText = cartTotal;
 
+    cart--;
+    document.getElementById("cart-count").innerText = cart;
+
+    btn.parentElement.remove();
+}
  function openCart(){
 document.getElementById("cart-sidebar").classList.add("active");
 }
