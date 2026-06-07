@@ -565,7 +565,7 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 View Details
 </button>
  <button class="btn"
-  onclick="checkoutWhatsapp()"> Buy Now</button>
+  onclick="buynow('Luxury Watch')"> Buy Now</button>
 </div>
 
 <div class="card">
@@ -577,10 +577,15 @@ View Details
 <div class="price">$199
  
  </div>
- <button class="btn"
-  onclick="showProduct('Premium Shoes','$199','https://images.unsplash.com/photo-1542291026-7eec264c27ff')"> View Details </button>
- <button class="btn"
-  onclick="checkoutWhatsapp()"> Buy Now</button>
+<button class="btn"
+onclick="showProduct('Premium Shoes','$199','https://images.unsplash.com/photo-1542291026-7eec264c27ff')">
+View Details
+</button>
+
+<button class="btn"
+onclick="buyNow('Premium Shoes')">
+Buy Now
+</button>
 </div>
 
 <div class="card">
@@ -591,9 +596,15 @@ View Details
 
 <div class="price">$149</div>
 
-<button class="btn" onclick="addToCart('Designer Shirt',149)">Buy Now</button>
- <button class="btn"
-  onclick="checkoutWhatsapp()"> Buy Now</button>
+<button class="btn"
+onclick="showProduct('Designer Shirt','$149','https://images.unsplash.com/photo-1521572163474-6864f9cf17ab')">
+View Details
+</button>
+
+<button class="btn"
+onclick="buyNow('Designer Shirt')">
+Buy Now
+</button>
 </div>
 
 </section>
@@ -667,6 +678,7 @@ function closeCart(){
 document.getElementById("cart-sidebar").classList.remove("active");
 }
 function checkoutWhatsApp(){
+ 
 
 let message = "New Order:%0A";
 
@@ -676,6 +688,12 @@ message += "Total: $" + cartTotal;
 
 window.open("https://wa.me/923009599999?text=" + encodeURlComponent(message));
 
+}
+ function buyNow(product){
+window.open(
+"https://wa.me/923009599999?text=" +
+encodeURIComponent("I want to buy: " + product)
+);
 }
  
 function searchProducts() {
