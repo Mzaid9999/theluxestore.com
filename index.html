@@ -561,7 +561,7 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 
 <div class="price">$299</div>
 
-<button class="btn" onclick="showProduct('Luxury Watch','$299','https://images.unsplash.com/photo-1523170335258-f5ed11844a49')">
+<button class="btn" onclick="showProduct('Luxury Watch','$299','https://images.unsplash.com/photo-1523170335258-f5ed11844a49','Premium Stainless Steel Watch - Water Resistance - 1 Year Warranty')">
 View Details
 </button>
  <button class="btn"
@@ -578,7 +578,7 @@ View Details
  
  </div>
 <button class="btn"
-onclick="showProduct('Premium Shoes','$199','https://images.unsplash.com/photo-1542291026-7eec264c27ff')">
+onclick="showProduct('Premium Shoes','$199','https://images.unsplash.com/photo-1542291026-7eec264c27ff','Comfortable Running Shoes - Lightweight Design - Sizes 40 to 45')">
 View Details
 </button>
 
@@ -597,7 +597,7 @@ Buy Now
 <div class="price">$149</div>
 
 <button class="btn"
-onclick="showProduct('Designer Shirt','$149','https://images.unsplash.com/photo-1521572163474-6864f9cf17ab')">
+onclick="showProduct('Designer Shirt','$149','https://images.unsplash.com/photo-1521572163474-6864f9cf17ab','100% Cotton Premuium Quality -0 Available in S M L XL')">
 View Details
 </button>
 
@@ -712,7 +712,7 @@ function searchProducts() {
     }
   });
 }
- function showProduct(title,price,image){
+ function showProduct(title,price,image,description){
 
 document.getElementById("popup").style.display="flex";
 
@@ -721,8 +721,8 @@ document.getElementById("popup-title").innerText=title;
 document.getElementById("popup-price").innerText=price;
 
 document.getElementById("popup-image").src=image;
-
-}3
+document.getElementById("popup-description").innerText = description;
+}
 </script>
  <div id="popup" class="popup" style="display:none;">
 
@@ -731,7 +731,7 @@ document.getElementById("popup-image").src=image;
 <h2 id="popup-title"></h2>
 
 <p id="popup-price"></p>
-
+<p id="popup-description"></p>
 <button class="btn" onclick="closePopup()">Close</button>
 <button class="btn" onclick="checkoutWhatsApp()">
 Order on WhatsApp
