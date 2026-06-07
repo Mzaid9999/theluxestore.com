@@ -570,7 +570,9 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 
 <h2>Premium Shoes</h2>
 
-<div class="price">$199</div>
+<div class="price">$1
+ 
+ 99</div>
 
 <button class="btn" onclick="window.open('https://wa.me/923001234567?text=I want to buy Premium Shoes')">Buy Now</button>
 </div>
@@ -677,6 +679,8 @@ function searchProducts() {
 
     if (title.indexOf(input) > -1) {
       card.style.display = "block";
+     console.log(title, title.indexOf(input));
+     console.log("INPUT =",input);
     } else {
       card.style.display = "none";
     }
