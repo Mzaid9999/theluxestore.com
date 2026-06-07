@@ -572,7 +572,7 @@ View Details
 
 <h2>Premium Shoes</h2>
 
-<div class="price">$1
+<div class="price">$199
  
  99</div>
  <button class="btn"
@@ -668,7 +668,7 @@ message += "Items in Cart: " + cart + "%0A";
 
 message += "Total: $" + cartTotal;
 
-window.open("https://wa.me/923009599999?text=" + message);
+window.open("https://wa.me/923009599999?text=" + encodeURlComponent(message));
 
 }
  
