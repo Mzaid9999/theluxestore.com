@@ -686,7 +686,7 @@ function removeFromCart(btn, price){
 
     cart--;
     document.getElementById("cart-count").innerText = cart;
-
+localStorage.setItem("cartCount",cart);
     btn.parentElement.remove();
 }
  function openCart(){
