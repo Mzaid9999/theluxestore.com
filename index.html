@@ -654,7 +654,17 @@ cartCount.classList.remove("bump");
 
 },300);
 document.getElementById("popup").style.display = "flex";
+let cartItems = document.getElementById("cart-items");
 
+cartItems.innerHTML += `
+<div>
+${product} - $${price}
+<button onclick="this.parentElement.remove()">Remove</button>
+</div>
+`;
+
+cartTotal += Number(price);
+document.getElementById("cart-total").innerText = cartTotal;
 document.getElementById("popup-title").innerText = product;
 
 document.getElementById("popup-price").innerText = "Added to cart successfully!";
@@ -761,6 +771,13 @@ document.getElementById("popup-description").innerText = description;
 <p id="popup-price"></p>
 <p id="popup-description"></p>
 <button class="btn" onclick="closePopup()">Close</button>
+ <button class="btn"
+onclick="addToCart(
+document.getElementById('popup-title').innerText,
+document.getElementById('popup-price').innerText.replace('$','')
+)">
+Add To Cart
+</button>
 <button class="btn" onclick="buyNow(document.getElementById('popup-title').innerText)">
 Order on WhatsApp
 </button>
