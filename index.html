@@ -726,6 +726,30 @@ document.getElementById("popup-description").innerText = description;
  function closePopup(){
   document.getElementByld("popup").style.display = "none";
  }
+ <style>
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-content{
+    background:#111;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    max-width:400px;
+    width:90%;
+    color:white;
+}
+</style>
 </script>
  <div id="popup" class="popup" style="display:none;">
 
