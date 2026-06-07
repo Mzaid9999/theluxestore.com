@@ -276,11 +276,7 @@ color:gold;
 font-size:20px;
 margin:15px 0;
 }
- .cart-sidebar{
-position:fixed;
-right:-400px;
-top:0;
-width:320px;
+ 
 height:100%;
 background:#111;
 padding:20px;
@@ -289,6 +285,13 @@ transition:0.4s;
 z-index:2000;
 overflow-y:auto;
 }
+
+  @media (max-width: 768px) {
+   .cart-sidebar{
+    width: 100%
+     right: 0;
+   }
+  } 
 .bump{
 
 transform: scale(1.3);
@@ -511,6 +514,9 @@ color:goldenrod;
 }
 </style>
 </head>
+ <meta name="viewport"
+  content="width=device-width,
+  initial-scale=1.0">
 
 <body>
 <div id="welcome-popup">
