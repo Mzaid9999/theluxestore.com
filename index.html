@@ -640,7 +640,8 @@ cart = parseInt(savedCart);
 document.getElementById("cart-count").innerText = cart;
 }
 function addToCart(product,price){
-alert(product + "added to cart");
+ price = Number(price);
+
 cart++;
 localStorage.setItem("cartCount", cart);
 document.getElementById("cart-count").innerText = cart;
