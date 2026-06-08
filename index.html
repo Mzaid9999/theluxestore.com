@@ -288,10 +288,14 @@ overflow-y:auto;
 
   @media (max-width: 768px) {
    .cart-sidebar{
-    width: 100%
-     right: 0;
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 320px;
+    height: 100vh;
+    background: #111;
+    z-index: 9999;
    }
-  } 
 .bump{
 
 transform: scale(1.3);
