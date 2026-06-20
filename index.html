@@ -29,6 +29,9 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:rgba(17,17,17,0.6);
+ position:sticky;
+top:0;
+z-index:1000;
 backdrop-filter:blur(10px);
 -webkit-backdrop-filter:blur(10px);
 border-bottom:1px solid rgba(255,255,255,0.1);
@@ -83,6 +86,8 @@ margin-top:10px;
 padding:15px 35px;
 background:gold;
 color:black;
+ font-weight:bold;
+letter-spacing:1px;
 border:none;
 font-size:18px;
 cursor:pointer;
@@ -125,6 +130,8 @@ padding:20px;
 border-radius:10px;
 text-align:center;
   transition:0.3s;  
+ overflow:hidden;
+cursor:pointer;
 border:1px solid rgba(255,255,255,0.1);
 backdrop-filter:blur(10px);
 box-shadow:0 0 20px rgba(255,215,0,0.1);
@@ -165,16 +172,25 @@ margin:10px 0;
 
 footer{
 text-align:center;
-padding:20px;
+padding:40px 20px;
 background:#111;
+color:white;
 margin-top:60px;
- padding-bottom:40px;
+padding-bottom:40px;
+}
+ footer h2{
+color:gold;
+margin-bottom:20px;
+}
+
+footer p{
+margin:10px 0;
 }
 @keyframes glow{
 from{
 text-shadow:0 0 10px gold;
 }
-to{
+to
 text-shadow:0 0 25px orange;
 }
 }
@@ -534,7 +550,7 @@ color:goldenrod;
 </div>
 <header>
 <button onclick="toggleMode()" class="btn">🌙 Mode</button>
-<div class="logo">THE LUXE STORE</div>
+ <div class="logo">✨ THE LUXE STORE ✨</div>
   <div style="color:gold; font-size:20px;cursor:pointer;" onclick="openCart()">
 🛒 Cart: <span id="cart-count">0</span>
 </div>
@@ -569,7 +585,7 @@ style="width:80%;padding:12px;margin:20px;border-radius:10px;border:none;font-si
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">
+<img loading="lazy" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">
 
 <h2>Luxury Watch</h2>
 
@@ -584,7 +600,7 @@ View Details
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff">
+<img loading="lazy" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">
 
 <h2>Premium Shoes</h2>
 
@@ -604,8 +620,8 @@ Buy Now
 
 <div class="card">
 
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
 
+<img loading="lazy" src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49">
 <h2>Designer Shirt</h2>
 
 <div class="price">$149</div>
@@ -631,7 +647,10 @@ Buy Now
 </div>
 </section>
 <footer id="contact">
-
+<h2>Contact Us</h2>
+<p>📧 Email: support@theluxestore.com</p>
+<p>📞 Phone: +92 300 1234567</p>
+<p>📍 Pakistan</p>
 © 2026 THE LUXE STORE
 
 <div class="social-icons">
