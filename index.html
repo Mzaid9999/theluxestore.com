@@ -577,7 +577,10 @@ color:goldenrod;
 
 <nav>
  <div class="search-box">
-  <input type="text" id="searchInput" placeholder="Search products...">
+  <input type="text" id="searchInput"
+placeholder="Search products..."
+onkeyup="searchProducts()">
+ 
 </div>
 <a href="#home">Home</a>
 <a href="#products">Products</a>
@@ -759,7 +762,7 @@ encodeURIComponent("I want to buy: " + product)
 }
  
 function searchProducts() {
-  let input = document.getElementById("search").value.toLowerCase();
+  let input = document.getElementById("searchInput").value.toLowerCase();
   let cards = document.querySelectorAll("div.card");
   cards.forEach(function(card) {
     let title = card.querySelector("h2").textContent.toLowerCase();
