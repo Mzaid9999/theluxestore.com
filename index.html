@@ -209,25 +209,38 @@ opacity:1;
 
     border-radius:30px;
     background:#111; 
- .search-area{
-    width:1000px;
-    max-width:95%;
+.search-wrapper{
+    width:100%;
     display:flex;
-    background:white;
-    border-radius:6px;
+    justify-content:center;
+}
+
+.search-area{
+    width:900px;
+    max-width:90vw;
+    display:flex;
+    background:#fff;
+    border-radius:4px;
     overflow:hidden;
-    margin:5px auto;
 }
 
 .search-area input{
     flex:1;
+    padding:16px;
     border:none;
     outline:none;
-    padding:15px;
-    font-size:17px;
-    color:black;
-    background:white;
+    font-size:18px;
 }
+
+.search-area button{
+    width:70px;
+    border:none;
+    background:#f5f5f5;
+    cursor:pointer;
+    font-size:24px;
+}
+}
+
 
 .search-area button{
     width:60px;
@@ -590,7 +603,7 @@ color:goldenrod;
   <div style="color:gold; font-size:20px;cursor:pointer;" onclick="openCart()">
 🛒 Cart: <span id="cart-count">0</span>
 </div>
-
+<div class="search-wrapper">
 <div class="search-area">
     <input
         type="text"
@@ -599,7 +612,10 @@ color:goldenrod;
         onkeyup="searchProducts()">
 
     <button>🔍</button>
+
 </div>
+</div>
+ 
 
 <nav>
     <a href="#home">Home</a>
