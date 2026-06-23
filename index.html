@@ -287,7 +287,7 @@ gap:15px;
 }
  .popup{
 display:none;
-position:relative;
+position:fixed;
 top:0;
 left:0;
 width:100%;
@@ -375,6 +375,7 @@ align-items:center;
 z-index:5000;
 }
 
+ 
 #loader h1{
 color:gold;
 font-size:50px;
@@ -537,7 +538,7 @@ html{
 }
 
 
-
+#welcome-popup button{
 padding:15px 25px;
 border:none;
 border-radius:10px;
@@ -893,10 +894,7 @@ document.getElementById("popup-description").innerText = description;
 </script>
  
 
-
-</style>
-
- <div id="popup" class="popup" style="display:none;">
+<div id="popup" class="popup" style="display:none;">
 
 <div class="popup-content">
 <img id="popup-image" style="width:250px;max-width:100%;border-radius:10px;">
