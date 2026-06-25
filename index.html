@@ -51,17 +51,14 @@ nav a:hover{
  text-shadow:0 0 10px gold;
 }
 .hero{
- padding-top:30px;
- min-height:50vh;
-    height:auto;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(to bottom, #000, #111);
+    padding:80px 20px;
+    min-height:60vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
 }
-
 .hero h1{
 font-size:45px;
 color:gold;
@@ -648,9 +645,13 @@ color:goldenrod;
 
 <body>
 <div id="welcome-popup">
-<h2>Welcome to THE LUXE STORE</h2>
-<p>Luxury Shopping Experience</p>
-<button onclick="document.getElementById('welcome-popup').style.display='none'">Enter Store</button>
+  <div>
+    <h2>Welcome to THE LUXE STORE</h2>
+    <p>Luxury Shopping Experience</p>
+    <button onclick="document.getElementById('welcome-popup').style.display='none'">
+      Enter Store
+    </button>
+  </div>
 </div>
 <header>
 <button onclick="toggleMode()" class="btn">🌙 Mode</button>
