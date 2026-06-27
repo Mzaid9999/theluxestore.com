@@ -34,31 +34,47 @@ body.light-mode #review-text { color: #111 !important; }
 body.light-mode nav a { color: #111; }
 
 header {
-  padding: 15px;
+  padding: 8px 15px;
   background: #000;
   position: sticky;
   top: 0;
   z-index: 9999;
   backdrop-filter: blur(15px);
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+.header-bottom {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .logo {
-  font-size: 32px;
-  margin: 5px;
+  font-size: 22px;
+  margin: 0;
   font-weight: bold;
   color: gold;
 }
 
 nav {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 5px;
+  flex-wrap: nowrap;
+  margin-top: 0;
 }
 
 nav a {
@@ -74,8 +90,8 @@ nav a:hover {
 }
 
 .hero {
-  padding: 30px 20px;
-  min-height: 40vh;
+  padding: 20px 20px;
+  min-height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -411,22 +427,26 @@ footer p  { margin: 10px 0; }
 
 <!-- Header -->
 <header>
-  <button onclick="toggleMode()" class="btn" style="margin-top:0;">🌙 Mode</button>
-  <div class="logo">✨ THE LUXE STORE ✨</div>
-  <div style="color:gold; font-size:20px; cursor:pointer;" onclick="openCart()">
-    🛒 Cart: <span id="cart-count">0</span>
-  </div>
-  <div class="search-wrapper">
-    <div class="search-area">
-      <input type="text" id="searchInput" placeholder="Search in The Luxe Store" onkeyup="searchProducts()">
-      <button onclick="searchProducts()">🔍</button>
+  <div class="header-top">
+    <button onclick="toggleMode()" class="btn" style="margin-top:0; padding:8px 16px; font-size:14px;">🌙 Mode</button>
+    <div class="logo" style="font-size:20px; margin:0;">✨ THE LUXE STORE ✨</div>
+    <div style="color:gold; font-size:16px; cursor:pointer; white-space:nowrap;" onclick="openCart()">
+      🛒 Cart: <span id="cart-count">0</span>
     </div>
   </div>
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#products">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <div class="header-bottom">
+    <div class="search-wrapper" style="flex:1;">
+      <div class="search-area" style="max-width:100%; width:100%;">
+        <input type="text" id="searchInput" placeholder="Search in The Luxe Store" onkeyup="searchProducts()">
+        <button onclick="searchProducts()">🔍</button>
+      </div>
+    </div>
+    <nav style="margin-top:0; white-space:nowrap;">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
 <!-- Hero -->
