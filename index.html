@@ -449,6 +449,81 @@ footer p  { margin: 10px 0; }
   }
   .search-wrapper { width: 100% !important; }
 }
+  /* PREMIUM HERO DESIGN */
+.hero {
+    min-height: 420px;
+    padding: 70px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, #050505, #171717, #080808);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 850px;
+    width: 100%;
+}
+
+.hero-tag {
+    display: inline-block;
+    color: gold;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    line-height: 1.1;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 20px;
+    text-shadow: none;
+    animation: none;
+}
+
+.hero h1 span {
+    color: gold;
+}
+
+.hero-content p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #bbbbbb;
+    text-shadow: none;
+}
+
+.hero-content .btn {
+    padding: 14px 30px;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 350px;
+        padding: 50px 18px;
+    }
+
+    .hero-tag {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+    }
+}
 </style>
 </head>
 
@@ -494,13 +569,24 @@ footer p  { margin: 10px 0; }
   </div>
 </header>
 
-<!-- Hero -->
+<!-- Premium Hero Section -->
 <section id="home" class="hero">
-  <h1>LUXURY COLLECTION</h1>
-  <p>Premium Fashion &amp; Accessories</p>
-  <button class="btn" onclick="document.querySelector('.products').scrollIntoView({behavior:'smooth'})">
-    Shop Now
-  </button>
+  <div class="hero-content">
+
+    <span class="hero-tag">WELCOME TO THE LUXE STORE</span>
+
+    <h1>STYLE THAT<br><span>DEFINES YOU</span></h1>
+
+    <p>
+      Discover premium fashion, accessories and timeless essentials
+      crafted for those who appreciate elegance and quality.
+    </p>
+
+    <button class="btn" onclick="document.querySelector('.products').scrollIntoView({behavior:'smooth'})">
+      EXPLORE COLLECTION
+    </button>
+
+  </div>
 </section>
 
 <!-- Products -->
