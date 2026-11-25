@@ -857,6 +857,14 @@ footer p:last-of-type {
     transform: scale(1.04);
     filter: brightness(1.08);
 }
+  /* STEP 12: ADD TO CART FEEDBACK */
+
+.cart-added {
+    background: linear-gradient(135deg, #28a745, #5be584) !important;
+    color: #000 !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.4) !important;
+}
 </style>
 </head>
 
@@ -1038,16 +1046,29 @@ function renderCart() {
 }
 
 function addToCart(product, price) {
-  price = parseFloat(price);
-  cartData.push({ name: product, price: price });
-  saveCart();
-  renderCart();
+    price = parseFloat(price);
+    cartData.push({ name: product, price: price });
+    saveCart();
+    renderCart();
 
-  let cartCount = document.getElementById("cart-count");
-  cartCount.classList.add("bump");
-  setTimeout(() => cartCount.classList.remove("bump"), 300);
+    let cartCount = document.getElementById("cart-count");
+    cartCount.classList.add("bump");
+    setTimeout(() => cartCount.classList.remove("bump"), 300);
+
+    // STEP 12: BUTTON FEEDBACK
+    let buttons = document.querySelectorAll(".btn");
+    buttons.forEach(button => {
+        if (button.innerText.includes("Add To Cart")) {
+            button.innerText = "Added ✓";
+            button.classList.add("cart-added");
+
+            setTimeout(() => {
+                button.innerText = "Add To Cart";
+                button.classList.remove("cart-added");
+            }, 1500);
+        }
+    });
 }
-
 function removeFromCart(index) {
   cartData.splice(index, 1);
   saveCart();
