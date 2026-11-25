@@ -934,6 +934,14 @@ footer p:last-of-type {
     font-size: 13px;
     line-height: 1.7;
 }
+ /* STEP 16: DISABLED CHECKOUT BUTTON */
+
+.checkout-disabled {
+    opacity: 0.4;
+    cursor: not-allowed !important;
+    filter: grayscale(1);
+    pointer-events: none;
+}
 </style>
 </head>
 
@@ -1126,6 +1134,16 @@ function renderCart() {
 
     document.getElementById("cart-total").innerText = total.toFixed(2);
     document.getElementById("cart-count").innerText = cartData.length;
+ // STEP 16: CHECKOUT BUTTON STATE
+let checkoutBtn = document.querySelector("#cart-sidebar button");
+
+if (checkoutBtn) {
+    if (cartData.length === 0) {
+        checkoutBtn.classList.add("checkout-disabled");
+    } else {
+        checkoutBtn.classList.remove("checkout-disabled");
+    }
+}
 }
 
 function addToCart(product, price) {
@@ -1162,6 +1180,11 @@ function openCart()  { document.getElementById("cart-sidebar").classList.add("ac
 function closeCart() { document.getElementById("cart-sidebar").classList.remove("active"); }
 
 function checkoutWhatsApp() {
+ // STEP 15: PREVENT EMPTY CART CHECKOUT
+if (cartData.length === 0) {
+    alert("Your cart is empty! Please add a product first.");
+    return;
+}
   let total = cartData.reduce((sum, i) => sum + i.price, 0);
   let itemList = cartData.map(i => i.name + " ($" + i.price.toFixed(2) + ")").join(", ");
   let message = "New Order:\nItems: " + itemList + "\nTotal: $" + total.toFixed(2);
