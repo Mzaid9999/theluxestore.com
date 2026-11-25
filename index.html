@@ -836,6 +836,27 @@ footer p:last-of-type {
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
     z-index: 5;
 }
+  /* STEP 11: LUXURY CARD GLOW EFFECT */
+
+#products .card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+#products .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.18),
+                0 15px 40px rgba(212, 175, 55, 0.10);
+    border-color: #d4af37;
+}
+
+#products .card img {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+#products .card:hover img {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+}
 </style>
 </head>
 
