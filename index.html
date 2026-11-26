@@ -1687,6 +1687,666 @@ html {
     background: #d4af37;
     color: #111;
 }
+ /* STEP 17 - GLOBAL LAYOUT FIX */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        max-width: 100%;
+    }
+
+    img {
+        height: auto;
+    }
+}
+ /* STEP 18 - INTERACTION POLISH */
+
+a {
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.85;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid #d4af37;
+    outline-offset: 3px;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+ /* STEP 19 - PREMIUM REVEAL ANIMATION */
+
+section {
+    animation: luxeReveal 0.8s ease both;
+}
+
+@keyframes luxeReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-card {
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        opacity 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+ /* STEP 20 - BACK TO TOP BUTTON */
+
+#backToTop {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: #111;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition: all 0.3s ease;
+}
+
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#backToTop:hover {
+    background: #d4af37;
+    color: #111;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+}
+
+@media (max-width: 768px) {
+    #backToTop {
+        bottom: 18px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+    }
+}\
+ // STEP 20 - BACK TO TOP FUNCTIONALITY
+
+const backToTopBtn = document.getElementById("backToTop");
+
+if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+  /* STEP 21 - STICKY PREMIUM HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: box-shadow 0.3s ease;
+}
+
+header.scrolled {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+    header {
+        position: sticky;
+        top: 0;
+    }
+}
+  /* STEP 22 - PREMIUM IMAGE EFFECT */
+
+.product-card img {
+    opacity: 0;
+    animation: imageFadeIn 0.8s ease forwards;
+}
+
+@keyframes imageFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(1.03);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+img {
+    image-rendering: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card img {
+        animation: none;
+        opacity: 1;
+    }
+}
+  /* STEP 23 - PREMIUM TYPOGRAPHY */
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+    text-rendering: optimizeLegibility;
+}
+
+p {
+    line-height: 1.7;
+}
+
+.product-card h3 {
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        line-height: 1.6;
+    }
+}
+  /* STEP 24 - PREMIUM GRID SPACING */
+
+.product-grid {
+    gap: 25px;
+}
+
+.product-card {
+    margin: 0;
+}
+
+.product-card h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.product-card p {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        gap: 12px;
+    }
+}
+  /* STEP 25 - PREMIUM PRICE STYLING */
+
+.product-card .price,
+.product-price {
+    color: #b8962e;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.product-card .old-price,
+.old-price {
+    color: #999;
+    font-size: 13px;
+    text-decoration: line-through;
+    font-weight: 400;
+}
+
+.product-card .discount,
+.discount {
+    color: #b12727;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.product-card .price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 10px 0;
+}
+  /* STEP 26 - PREMIUM QUANTITY CONTROLS */
+
+.quantity-control,
+.quantity-selector {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.quantity-control button,
+.quantity-selector button {
+    background: #111;
+    color: #d4af37;
+    border: none;
+    padding: 10px 14px;
+    transition: 0.3s ease;
+}
+
+.quantity-control button:hover,
+.quantity-selector button:hover {
+    background: #d4af37;
+    color: #111;
+}
+
+.quantity-control input,
+.quantity-selector input {
+    width: 45px;
+    text-align: center;
+    border: none;
+    background: #fff;
+    color: #111;
+    outline: none;
+}
+  /* STEP 27 - PREMIUM SEARCH BAR */
+
+.search-area {
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-area:focus-within {
+    border-color: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.12);
+}
+
+.search-area input {
+    background: #111;
+    color: #fff;
+    border: none;
+    outline: none;
+}
+
+.search-area input::placeholder {
+    color: #999;
+}
+
+.search-area button {
+    background: #d4af37;
+    color: #111;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.search-area button:hover {
+    background: #f1d77a;
+}
+  /* STEP 28 - PREMIUM MOBILE NAVIGATION */
+
+@media (max-width: 768px) {
+    nav a {
+        padding: 12px 15px;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a:active {
+        color: #d4af37;
+    }
+
+    .header-bottom {
+        border-top: 1px solid rgba(212, 175, 55, 0.15);
+    }
+
+    header {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+  /* STEP 29 - PREMIUM FOOTER */
+
+footer {
+    background: #0b0b0b;
+    color: #ccc;
+    border-top: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+footer h3,
+footer h4 {
+    color: #d4af37;
+    letter-spacing: 1.5px;
+}
+
+footer a {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #d4af37;
+    padding-left: 4px;
+}
+
+footer hr {
+    border: none;
+    height: 1px;
+    background: rgba(212, 175, 55, 0.2);
+}
+
+footer .social-links a:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    footer {
+        text-align: center;
+    }
+
+    footer a:hover {
+        padding-left: 0;
+    }
+}
+  /* STEP 30 - PRODUCT CONTENT ALIGNMENT */
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card h3 {
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card .price,
+.product-price {
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.product-card button {
+    margin-top: 12px;
+}
+
+.product-card .product-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .product-card h3 {
+        min-height: auto;
+    }
+
+    .product-card .product-info {
+        padding: 10px;
+    }
+}
+  /* STEP 31 - PREMIUM CARD GLOW */
+
+.product-card {
+    border: 1px solid rgba(212, 175, 55, 0.18);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+}
+
+.product-card:hover {
+    border-color: rgba(212, 175, 55, 0.65);
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.10);
+    transform: translateY(-5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .product-card {
+        transition: none;
+    }
+
+    .product-card:hover {
+        transform: none;
+    }
+}
+  /* STEP 32 - CART ITEM INTERACTION */
+
+.cart-item {
+    transition: background 0.3s ease, border-color 0.3s ease;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+.cart-item:hover {
+    background: rgba(212, 175, 55, 0.04);
+}
+
+.cart-item img {
+    transition: transform 0.3s ease;
+}
+
+.cart-item:hover img {
+    transform: scale(1.04);
+}
+
+.cart-item h3,
+.cart-item h4 {
+    transition: color 0.3s ease;
+}
+
+.cart-item:hover h3,
+.cart-item:hover h4 {
+    color: #d4af37;
+}
+  /* STEP 33 - LUXURY LOADER */
+
+.luxe-loader {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(212, 175, 55, 0.2);
+    border-top-color: #d4af37;
+    border-radius: 50%;
+    animation: luxeSpin 0.8s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes luxeSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 120px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .luxe-loader {
+        animation-duration: 2s;
+    }
+}
+  /* STEP 34 - PREMIUM TOAST NOTIFICATIONS */
+
+.toast,
+.notification,
+.toast-message {
+    background: #111;
+    color: #fff;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-left: 3px solid #d4af37;
+    padding: 15px 20px;
+    border-radius: 5px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    animation: toastAppear 0.35s ease;
+}
+
+.toast strong,
+.notification strong {
+    color: #d4af37;
+}
+
+@keyframes toastAppear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  /* STEP 35 - PREMIUM INPUT FIELDS */
+
+input,
+textarea,
+select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #d4af37 !important;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.12);
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #999;
+    transition: opacity 0.3s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    opacity: 0.6;
+}
+  /* STEP 36 - MICRO INTERACTIONS */
+
+i,
+svg {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+a:hover i,
+button:hover i {
+    transform: translateY(-2px);
+}
+
+a:hover svg,
+button:hover svg {
+    transform: scale(1.08);
+}
+
+button,
+a,
+.product-card {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    i,
+    svg,
+    a,
+    button {
+        transition: none !important;
+    }
+}
 </style>
 </head>
 
@@ -2044,7 +2704,20 @@ setInterval(() => {
   document.getElementById("review-text").innerText = reviews[reviewIndex].text;
   document.getElementById("review-name").innerText = "— " + reviews[reviewIndex].name;
 }, 3000);
-</script>
+ /* STEP 21 - HEADER SCROLL EFFECT */
 
+window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+
+    if (header) {
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
+});
+</script>
+<button id="backToTop" aria-label="Back to top">↑</button>
 </body>
 </html>
