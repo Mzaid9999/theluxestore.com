@@ -1352,9 +1352,9 @@ footer p:last-of-type {
   <div>
     <h2>Welcome to THE LUXE STORE</h2>
     <p>Luxury Shopping Experience</p>
-    <button onclick="document.getElementById('welcome-popup').style.display='none'">
-      Enter Store
-    </button>
+   <button onclick="enterStore()">
+  Enter Store
+</button>
   </div>
 </div>
 
@@ -1491,12 +1491,36 @@ footer p:last-of-type {
 
 <script>
 // Cart stored as array in localStorage so items persist on reload
-window.onload = function() {
-  renderCart();
-  setTimeout(function() {
-    document.getElementById("loader").style.display = "none";
-  }, 2000);
-};
+ function enterStore() {
+    const welcomePopup = document.getElementById("welcome-popup");
+    const loader = document.getElementById("loader");
+
+    welcomePopup.style.display = "none";
+
+    if (loader) {
+        loader.style.opacity = "0";
+        loader.style.transition = "opacity 0.5s ease";
+
+        setTimeout(function() {
+            loader.style.display = "none";
+        }, 500);
+    }
+}
+window.addEventListener("load", function() {
+    renderCart();
+
+    const loader = document.getElementById("loader");
+    const welcomePopup = document.getElementById("welcome-popup");
+
+    setTimeout(function() {
+        loader.style.opacity = "0";
+        loader.style.transition = "opacity 0.5s ease";
+
+        setTimeout(function() {
+            loader.style.display = "none";
+        }, 500);
+    }, 800);
+});
 
 let cartData = JSON.parse(localStorage.getItem("cartData") || "[]");
 
