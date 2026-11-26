@@ -400,55 +400,7 @@ footer p  { margin: 10px 0; }
 }
 
 /* Mobile */
-@media (max-width: 768px) {
-  body, html {
-    width: 100% !important;
-    overflow-x: hidden !important;
-  }
-  .products {
-    display: flex !important;
-    flex-direction: column !important;
-    padding: 10px !important;
-    width: 100% !important;
-    gap: 12px !important;
-  }
-  .card {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    box-sizing: border-box !important;
-  }
-  .card img   { height: 220px !important; width: 100% !important; }
-  .hero { text-align: center; padding: 15px; }
-  .hero h1    { font-size: 26px; }
-  .hero p     { font-size: 15px; }
-  .cart-sidebar { width: 88%; right: -100%; }
-  .cart-sidebar.active { right: 0; }
-  #welcome-popup h2 { font-size: 22px; }
-  .btn        { font-size: 13px; padding: 10px 16px; }
-  header { padding: 6px 10px; }
-  .search-area { width: 100% !important; max-width: 100% !important; }
 
-  /* header bottom row - stack search and nav vertically */
-  .header-bottom {
-    flex-direction: column !important;
-    align-items: stretch !important;
-    gap: 6px !important;
-  }
-  nav {
-    display: flex !important;
-    justify-content: center !important;
-    gap: 20px !important;
-    white-space: nowrap !important;
-    width: 100% !important;
-  }
-  nav a {
-    font-size: 14px !important;
-    margin: 0 !important;
-    color: white !important;
-  }
-  .search-wrapper { width: 100% !important; }
-}
   /* PREMIUM HERO DESIGN */
 .hero {
     min-height: 420px;
@@ -522,6 +474,88 @@ footer p  { margin: 10px 0; }
 
     .hero-content p {
         font-size: 14px;
+    }
+}
+ /* LUXE HERO PREMIUM UPGRADE */
+
+.hero {
+    min-height: 520px;
+    background:
+        radial-gradient(ellipse at 50% 40%, rgba(212,175,55,0.12), transparent 65%),
+        linear-gradient(135deg, #050505, #111, #050505);
+    border-bottom: 1px solid rgba(212,175,55,0.2);
+}
+
+.hero-tag {
+    border: 1px solid rgba(212,175,55,0.4);
+    padding: 10px 20px;
+    border-radius: 50px;
+    background: rgba(212,175,55,0.05);
+}
+
+.hero h1 {
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #b8860b, #ffe88a, #d4af37);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-content p {
+    color: #c4c4c4;
+}
+
+.hero-content .btn {
+    padding: 16px 35px;
+    border-radius: 50px;
+    letter-spacing: 2px;
+}
+ /* HERO BUTTON PREMIUM HOVER */
+
+.hero-content .btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.hero-content .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(212,175,55,0.3);
+    background: linear-gradient(135deg, #d4af37, #f5e6a3);
+    color: #000;
+}
+ /* HERO TEXT ANIMATION */
+
+.hero-content {
+    animation: heroFadeIn 1s ease forwards;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* LUXURY HERO GLOW ANIMATION */
+
+.hero {
+    background-size: 200% 200%;
+    animation: luxuryGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes luxuryGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
     }
 }
   /* HERO PREMIUM LIGHT EFFECT */
