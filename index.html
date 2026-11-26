@@ -1480,7 +1480,7 @@ footer p:last-of-type {
   <h2>Your Cart</h2>
   <div id="cart-items"></div>
   <h3>Total: $<span id="cart-total">0</span></h3>
-  <button class="btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
+  <button id="checkoutBtn" class="btn" onclick="checkoutWhatsApp()">Checkout via WhatsApp</button>
   <button class="btn" onclick="closeCart()">Close</button>
 </div>
 
@@ -1552,16 +1552,13 @@ function renderCart() {
     document.getElementById("cart-count").innerText =
         cartData.reduce((sum, item) => sum + (item.quantity || 1), 0);
 
-    // STEP 16: CHECKOUT BUTTON STATE
-    let checkoutBtn = document.querySelector("#cart-sidebar button");
+   // CHECKOUT BUTTON STATE FIX
+let checkoutBtn = document.getElementById("checkoutBtn");
 
-    if (checkoutBtn) {
-        if (cartData.length === 0) {
-            checkoutBtn.classList.add("checkout-disabled");
-        } else {
-            checkoutBtn.classList.remove("checkout-disabled");
-        }
-    }
+if (checkoutBtn) {
+    checkoutBtn.disabled = cartData.length === 0;
+    checkoutBtn.classList.toggle("checkout-disabled", cartData.length === 0);
+}
 }
 function addToCart(product, price) {
     price = parseFloat(price);
