@@ -1121,34 +1121,63 @@ function renderCart() {
         `;
     } else {
         cartData.forEach(function(item, index) {
-            total += item.price;
+            let quantity = item.quantity || 1;
+            let subtotal = item.price * quantity;
+            total += subtotal;
 
             cartItems.innerHTML += `
-                <div class="cart-item" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
-                    <span>${item.name} — $${item.price.toFixed(2)}</span>
-                    <button onclick="removeFromCart(${index})" style="background:red; color:white; border:none; border-radius:4px; cursor:pointer; padding:4px 10px; font-size:13px; flex-shrink:0;">Remove</button>
+                <div class="cart-item" style="display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; padding:12px 0;">
+                    <div>
+                        <strong>${item.name}</strong>
+                        <div style="font-size:13px; color:gray;">
+                            $${item.price.toFixed(2)} each
+                        </div>
+                        <div style="font-weight:bold; margin-top:5px;">
+                            Subtotal: $${subtotal.toFixed(2)}
+                        </div>
+                    </div>
+
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button onclick="changeQuantity(${index}, -1)">−</button>
+                        <span style="font-weight:bold;">${quantity}</span>
+                        <button onclick="changeQuantity(${index}, 1)">+</button>
+                    </div>
                 </div>
             `;
         });
     }
 
     document.getElementById("cart-total").innerText = total.toFixed(2);
-    document.getElementById("cart-count").innerText = cartData.length;
- // STEP 16: CHECKOUT BUTTON STATE
-let checkoutBtn = document.querySelector("#cart-sidebar button");
 
-if (checkoutBtn) {
-    if (cartData.length === 0) {
-        checkoutBtn.classList.add("checkout-disabled");
-    } else {
-        checkoutBtn.classList.remove("checkout-disabled");
+    document.getElementById("cart-count").innerText =
+        cartData.reduce((sum, item) => sum + (item.quantity || 1), 0);
+
+    // STEP 16: CHECKOUT BUTTON STATE
+    let checkoutBtn = document.querySelector("#cart-sidebar button");
+
+    if (checkoutBtn) {
+        if (cartData.length === 0) {
+            checkoutBtn.classList.add("checkout-disabled");
+        } else {
+            checkoutBtn.classList.remove("checkout-disabled");
+        }
     }
 }
-}
-
 function addToCart(product, price) {
     price = parseFloat(price);
-    cartData.push({ name: product, price: price });
+
+    let existingItem = cartData.find(item => item.name === product);
+
+    if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+        cartData.push({
+            name: product,
+            price: price,
+            quantity: 1
+        });
+    }
+
     saveCart();
     renderCart();
 
@@ -1158,6 +1187,7 @@ function addToCart(product, price) {
 
     // STEP 12: BUTTON FEEDBACK
     let buttons = document.querySelectorAll(".btn");
+
     buttons.forEach(button => {
         if (button.innerText.includes("Add To Cart")) {
             button.innerText = "Added ✓";
@@ -1175,20 +1205,36 @@ function removeFromCart(index) {
   saveCart();
   renderCart();
 }
+// STEP 17: CHANGE PRODUCT QUANTITY
+function changeQuantity(index, change) {
+    cartData[index].quantity = (cartData[index].quantity || 1) + change;
 
+    if (cartData[index].quantity <= 0) {
+        cartData.splice(index, 1);
+    }
+
+    saveCart();
+    renderCart();
+}
 function openCart()  { document.getElementById("cart-sidebar").classList.add("active"); }
 function closeCart() { document.getElementById("cart-sidebar").classList.remove("active"); }
 
 function checkoutWhatsApp() {
- // STEP 15: PREVENT EMPTY CART CHECKOUT
-if (cartData.length === 0) {
-    alert("Your cart is empty! Please add a product first.");
-    return;
-}
-  let total = cartData.reduce((sum, i) => sum + i.price, 0);
-  let itemList = cartData.map(i => i.name + " ($" + i.price.toFixed(2) + ")").join(", ");
-  let message = "New Order:\nItems: " + itemList + "\nTotal: $" + total.toFixed(2);
-  window.open("https://wa.me/923006568397?text=" + encodeURIComponent(message));
+    // STEP 15: PREVENT EMPTY CART CHECKOUT
+    if (cartData.length === 0) {
+        alert("Your cart is empty! Please add a product first.");
+        return;
+    }
+
+    let total = cartData.reduce((sum, i) => sum + i.price * (i.quantity || 1), 0);
+
+    let itemList = cartData.map(i =>
+        i.name + " x " + (i.quantity || 1) + " = $" + (i.price * (i.quantity || 1)).toFixed(2)
+    ).join("\n");
+
+    let message = "New Order:\n\nItems:\n" + itemList + "\n\nTotal: $" + total.toFixed(2);
+
+    window.open("https://wa.me/923006568397?text=" + encodeURIComponent(message));
 }
 
 function buyNow(product) {
