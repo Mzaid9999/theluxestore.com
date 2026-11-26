@@ -1376,6 +1376,317 @@ footer p:last-of-type {
         <button onclick="closeCart()">Continue Shopping</button>
     </div>
 `;
+ /* LUXE HERO MOBILE OPTIMIZATION */
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 430px;
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+        letter-spacing: -1px;
+        line-height: 1.15;
+    }
+
+    .hero-tag {
+        font-size: 11px;
+        padding: 8px 14px;
+    }
+
+    .hero-content p {
+        font-size: 14px;
+        line-height: 1.7;
+        max-width: 100%;
+    }
+
+    .hero-content .btn {
+        padding: 14px 25px;
+        font-size: 12px;
+    }
+}
+ /* STEP 6 - PREMIUM HERO BACKGROUND */
+
+.hero {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.85),
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.15)
+        ),
+        url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1920&q=90');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ /* STEP 7 - PREMIUM PRODUCT CARDS */
+
+.product-card {
+    background: #fff;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-color: rgba(212, 175, 55, 0.6);
+}
+
+.product-card img {
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-card button {
+    transition: all 0.3s ease;
+}
+
+.product-card button:hover {
+    background: #d4af37;
+    color: #111;
+}
+ /* STEP 8 - PREMIUM ADD TO CART BUTTON */
+
+.product-card button,
+.add-to-cart,
+button[onclick*="addToCart"] {
+    background: #111;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-card button:hover,
+.add-to-cart:hover,
+button[onclick*="addToCart"]:hover {
+    background: #d4af37;
+    color: #111;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.25);
+}
+ /* STEP 9 - PREMIUM PRODUCT BADGES */
+
+.product-badge,
+.sale-badge {
+    background: #d4af37;
+    color: #111;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 8px 12px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-badge,
+.product-card:hover .sale-badge {
+    transform: scale(1.05);
+}
+ /* STEP 10 - PRODUCT IMAGE CONSISTENCY */
+
+.product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    background: #f5f5f5;
+}
+
+.product-card {
+    text-align: center;
+}
+
+.product-card:hover img {
+    filter: brightness(1.03);
+}
+ /* STEP 11 - PREMIUM SECTION HEADINGS */
+
+section h2,
+.section-title {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 2px;
+    background: #d4af37;
+    margin: 15px auto 0;
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 90px;
+}
+ /* STEP 12 - PREMIUM NEWSLETTER */
+
+.newsletter {
+    background: #111;
+    color: #fff;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.newsletter h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #d4af37;
+    margin-bottom: 15px;
+}
+
+.newsletter p {
+    color: #bbb;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.newsletter input {
+    padding: 14px 18px;
+    width: 100%;
+    max-width: 350px;
+    background: transparent;
+    border: 1px solid #555;
+    color: white;
+    outline: none;
+    transition: 0.3s;
+}
+
+.newsletter input:focus {
+    border-color: #d4af37;
+}
+
+.newsletter button {
+    padding: 14px 24px;
+    background: #d4af37;
+    color: #111;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter button:hover {
+    background: #fff;
+    transform: translateY(-2px);
+}
+ /* STEP 13 - PREMIUM CART */
+
+#cart,
+.cart-modal,
+.cart-sidebar {
+    background: #111;
+    color: #fff;
+}
+
+#cart h2,
+.cart-modal h2,
+.cart-sidebar h2 {
+    color: #d4af37;
+    letter-spacing: 2px;
+}
+
+#cart button,
+.cart-modal button,
+.cart-sidebar button {
+    transition: all 0.3s ease;
+}
+
+#cart button:hover,
+.cart-modal button:hover,
+.cart-sidebar button:hover {
+    transform: translateY(-2px);
+}
+
+.cart-item {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 15px 0;
+}
+
+.cart-total {
+    color: #d4af37;
+    font-weight: 700;
+}
+ /* STEP 14 - PREMIUM CHECKOUT BUTTON */
+
+.checkout-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #d4af37, #f1d77a, #b8962e);
+    color: #111;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(212, 175, 55, 0.3);
+    filter: brightness(1.08);
+}
+
+.checkout-btn:active {
+    transform: scale(0.98);
+}
+ /* STEP 15 - PREMIUM SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        180deg,
+        #d4af37,
+        #a88724
+    );
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f1d77a;
+}
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 #111;
+}
+ /* STEP 16 - SMOOTH SCROLL & TEXT SELECTION */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: #d4af37;
+    color: #111;
+}
+
+::-moz-selection {
+    background: #d4af37;
+    color: #111;
+}
 </style>
 </head>
 
