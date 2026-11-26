@@ -942,6 +942,32 @@ footer p:last-of-type {
     filter: grayscale(1);
     pointer-events: none;
 }
+ /* STEP 18: PREMIUM QUANTITY CONTROLS */
+
+.cart-item button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d4af37, #f9e27d);
+    color: #111;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.cart-item button:hover {
+    transform: scale(1.12);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+}
+
+.cart-item button:active {
+    transform: scale(0.95);
+}
 </style>
 </head>
 
