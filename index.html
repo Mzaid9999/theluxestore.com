@@ -2150,29 +2150,31 @@ footer .social-links a:hover {
         min-height: auto;
     }
 
-    .product .card {
+    .products .card {
         padding: 10px;
     }
 }
   /* STEP 31 - PREMIUM CARD GLOW */
 
-.product-card {
+/* STEP 31 - PREMIUM CARD GLOW */
+
+.products .card {
     border: 1px solid rgba(212, 175, 55, 0.18);
     transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
 }
 
-.product-card:hover {
+.products .card:hover {
     border-color: rgba(212, 175, 55, 0.65);
     box-shadow: 0 10px 30px rgba(212, 175, 55, 0.10);
     transform: translateY(-5px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .product-card {
+    .products .card {
         transition: none;
     }
 
-    .product-card:hover {
+    .products .card:hover {
         transform: none;
     }
 }
